@@ -31,6 +31,10 @@ mkd Sonarr
 mkd Sonarr/Config
 sudo chmod -R ug=rwX,o=rX Sonarr
 
+mkd Bazarr
+mkd Bazarr/Config
+sudo chmod -R ug=rwX,o=rX Bazarr
+
 mkd Muximux
 mkd Muximux/Config
 sudo chmod -R ug=rwX,o=rX Muximux

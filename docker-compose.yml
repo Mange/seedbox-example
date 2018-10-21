@@ -44,7 +44,7 @@ services:
   sonarr:
     image: lsioarmhf/sonarr
     container_name: sonarr
-    mem_limit: 150m
+    mem_limit: 200m
     volumes:
       - /home/seedbox/Sonarr/Config:/config
       - /home/seedbox/Sonarr/Library:/tv
@@ -57,3 +57,19 @@ services:
     links:
       - transmission
       - jackett
+
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    mem_limit: 120m
+    volumes:
+      - /home/seedbox/Bazarr/Config:/config
+      - /home/seedbox/Bazarr/TV:/tv
+      - /home/seedbox/Bazarr/Movies:/movies
+    env_file:
+      - /home/seedbox/user.env
+    ports:
+      - "6767:6767"
+    restart: unless-stopped
+    links:
+      - sonarr
